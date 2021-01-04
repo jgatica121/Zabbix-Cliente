@@ -103,11 +103,50 @@ Para realizar esta tarea se omiten los comentarios que contiene el archivo.
     PidFile=/var/run/zabbix/zabbix_agentd.pid
     LogFile=/var/log/zabbix/zabbix_agentd.log
     LogFileSize=0
-    **Server=10.0.0.150**
+    Server=10.0.0.150
     ListenPort=10050
     ServerActive=10.0.0.150
     Hostname=zabbix-04
     Include=/etc/zabbix/zabbix_agentd.d/*.conf
+    
+Los parametros que se deben agregar y cambiar para los clientes son los sigueintes:
+
+Mantener en todos los clientes:
+
+* Server=10.0.0.150 (IP servidor Zabbix)
+* ListenPort=10050  (Puerto de comunicación)
+* ServerActive=10.0.0.150 (IP servidor Zabbix)
+
+Cambiar en cada servidor:
+
+* Hostname=zabbix-04 (Hostname del cliente)
 
 
+**Firewall**
+Agregamos el puerto y reiniciamos nuestro firewall, para permitir la conexión con el servidor.
 
+    [root@zabbix-04 yum.repos.d]# firewall-cmd --add-port=10050/tcp --permanent
+    success
+    [root@zabbix-04 yum.repos.d]# firewall-cmd --reload
+    success
+
+
+## Configuraicón en el servidor Zabbix
+
+1.- Para agregar nuestro cliente iniciamos sesión en nuestra consola web.
+   
+   * http://zabbix-server.ansible-labs.com/zabbix
+
+2.- Cuando nos encontremos dentro nos diriguimos a **Configuration** y sobre **Hosts**.
+
+3.- Una vez en la pestaña de hosts vamos a dar clic sobre el boton de **create host**.
+
+4.-  Vamos a llenar los campos que nos solicita con los datos de nuestro servidor (Hostname e IP).
+
+5.- En el apartado de **Groups** vamos a escribir linux y escogeremos el grupo de **Linux Server**
+
+6.- En la ventana superior aprecen diferentes apartados vamos a selecionar **Templates**
+
+7.- Agregamos los template que consideremos necesarios.
+
+8.- Una vez terminando el proceso damos clic sobre el botón de **add**
