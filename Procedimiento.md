@@ -88,4 +88,26 @@ Para iniciar con este proceso debemos tener creados nuestro clientes.
         zabbix-agent.x86_64 0:5.0.7-1.el7                                                                                                                                                            
 
       ¡Listo!
+ 
+
+**Iniciar el servicio**
+
+    [root@zabbix-04 yum.repos.d]# systemctl start zabbix-agent
+    [root@zabbix-04 yum.repos.d]# systemctl enable zabbix-agent
+    Created symlink from /etc/systemd/system/multi-user.target.wants/zabbix-agent.service to /usr/lib/systemd/system/zabbix-agent.service.
+    
+**Modificar el archivo de configuración**
+
+Para realizar esta tarea se omiten los comentarios que contiene el archivo.
+
+    PidFile=/var/run/zabbix/zabbix_agentd.pid
+    LogFile=/var/log/zabbix/zabbix_agentd.log
+    LogFileSize=0
+    **Server=10.0.0.150**
+    ListenPort=10050
+    ServerActive=10.0.0.150
+    Hostname=zabbix-04
+    Include=/etc/zabbix/zabbix_agentd.d/*.conf
+
+
 
