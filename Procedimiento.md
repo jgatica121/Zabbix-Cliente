@@ -14,6 +14,6 @@ Para iniciar con este proceso debemos tener creados nuestro clientes.
 
 Iniciamos sesión:
 
-   [jgatica@localhost Descargas]$ ssh root@10.0.0.69
-   root@10.0.0.69's password: 
-   Last login: Mon Jan  4 14:50:53 2021 from 10.0.0.201
+    [jgatica@localhost Descargas]$ ssh root@10.0.0.69
+    root@10.0.0.69's password: 
+    Last login: Mon Jan  4 14:50:53 2021 from 10.0.0.201
