@@ -147,6 +147,7 @@ Agregamos el puerto y reiniciamos nuestro firewall, para permitir la conexión c
 5.- Vamos a dar clic sobre **Create action**
 
 6.- Vamos a llenar los datos que nos solicita:
+
     * Name (Nombre de la nueva action)
     * Conditions (Vamos a agregar una nueva condicional
     * Type (El tipo de nuestra condicional debe ser **Host Metadata**
@@ -154,6 +155,7 @@ Agregamos el puerto y reiniciamos nuestro firewall, para permitir la conexión c
     * Value (Vamos a utilizar el definido en nuestro archivo de configuración del cliente **grpB**
 
 7.- En la pestaña de **Operations** de vamos a realizar las siguientes tareas:
+
     * Operations vamos a dar clic sobre el boton de **add**
     * Agregar **Operation type** (el tipo a agregar es **add to host group** en este caso será **Linux servers**)
     * Agregar **Operation type** (el tipo a agregar es **Link to templates** en este caso será **Template Module ICMP Ping Template OS Linux by Zabbix agent**)
