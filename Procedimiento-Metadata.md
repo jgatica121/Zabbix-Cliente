@@ -138,11 +138,11 @@ Agregamos el puerto y reiniciamos nuestro firewall, para permitir la conexión c
 1.- Para realizar la configuración de nuestro servidor y se auto registren nuestro clientes nos dirigimos a nuestra consola web.
     http://zabbix-server.ansible-labs.com/zabbix
 
-2.- Cuando nos encontremos dentro nos dirigimos a **Configuration** y sobre **Actions**.
+2.- Cuando nos encontremos dentro nos dirigimos a **Configuration** y sobre **Actions**
 
-3.- Una vez en la pestaña de **Actions** vamos a dar clic sobre el botón de **AutoRegistration Actions**.
+3.- Una vez en la pestaña de **Actions** vamos a dar clic sobre el botón de **AutoRegistration Actions**
 
-4.- El cual nos va cambiar a una ventana distinta que por el momento no tiene información.
+4.- El cual nos va cambiar a una ventana distinta que por el momento no tiene información
 
 5.- Vamos a dar clic sobre **Create action**
 
