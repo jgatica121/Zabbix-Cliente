@@ -155,7 +155,7 @@ Agregamos el puerto y reiniciamos nuestro firewall, para permitir la conexión c
 
   * Name (Nombre de la nueva action)
   
-  * Conditions (Vamos a agregar una nueva condicional
+  * Conditions (Vamos a agregar una nueva condicional
   
   * Type (El tipo de nuestra condicional debe ser **Host Metadata**
   
