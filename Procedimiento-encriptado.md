@@ -96,4 +96,77 @@ Para iniciar con este proceso debemos tener creados nuestro clientes.
     [root@zabbix-04 yum.repos.d]# systemctl enable zabbix-agent
     Created symlink from /etc/systemd/system/multi-user.target.wants/zabbix-agent.service to /usr/lib/systemd/system/zabbix-agent.service.
     
+**Generar llave randon hexadecimal utilizando openssl**
+
+Vamos a crear una llave hexadecinal de 32 bits, el cual vamos a almacenar dentro de /etc/zabbix
+
+    [root@zabbix-05 zabbix]# openssl rand -hex 32 > /etc/zabbix/zabbix_agentd.psk
+
+
 **Modificar el archivo de configuración**
+
+    PidFile=/var/run/zabbix/zabbix_agentd.pid
+    LogFile=/var/log/zabbix/zabbix_agentd.log
+    LogFileSize=0
+    Server=10.0.0.150
+    ListenPort=10050
+    ServerActive=10.0.0.150
+    Hostname=zabbix-05
+    Include=/etc/zabbix/zabbix_agentd.d/*.conf
+    TLSConnect=psk
+    TLSAccept=psk
+    TLSPSKIdentity=psk_1A
+    TLSPSKFile=/etc/zabbix/zabbix_agentd.psk
+
+Los parametros que se deben agregar y cambiar para los clientes son los sigueintes:
+
+Mantener en todos los clientes:
+
+* Server=10.0.0.150 (IP servidor Zabbix)
+* ListenPort=10050 (Puerto de comunicación)
+* ServerActive=10.0.0.150 (IP servidor Zabbix)
+* TLSConnect=psk          (Tipo de encriptación a utilizar)
+* TLSAccept=psk           (Encriptación aceptada)
+* TLSPSKIdentity=psk_1A   (Identity valor que respeta entre mayusculas y minusculas, se usara para el registro en la consola web)
+* TLSPSKFile=/etc/zabbix/zabbix_agentd.psk (Archivo Generado utilizando **Openssl**
+
+Cambiar en cada servidor:
+* Hostname=zabbix-04 (Hostname del cliente)
+
+**Firewall** 
+
+Agregamos el puerto y reiniciamos nuestro firewall, para permitir la conexión con el servidor.
+
+    [root@zabbix-04 yum.repos.d]# firewall-cmd --add-port=10050/tcp --permanent
+    success
+    [root@zabbix-04 yum.repos.d]# firewall-cmd --reload
+    success
+
+## Configuraicón en el servidor Zabbix
+
+1.- Para agregar nuestro cliente iniciamos sesión en nuestra consola web.
+    http://zabbix-server.ansible-labs.com/zabbix
+
+2.- Cuando nos encontremos dentro nos diriguimos a Configuration y sobre Hosts.
+
+3.- Una vez en la pestaña de hosts vamos a dar clic sobre el boton de create host.
+
+4.- Vamos a llenar los campos que nos solicita con los datos de nuestro servidor (Hostname e IP).
+
+5.- En el apartado de Groups vamos a escribir linux y escogeremos el grupo de Linux Server
+
+6.- En la ventana superior aprecen diferentes apartados vamos a selecionar Templates
+
+7.- Agregamos los template que consideremos necesarios.
+
+8.- Nos dirigimos al apartado Encryption.
+
+9.- cuando nos encontremos acá vamos a realizar los siguiente:
+  * En el apartado de **Connections to host** vamos a seleccionar **PSK**
+  * En el apartado de **Connections from host** vamos a seleccionar **PSK** y desmarcamos los demás
+  * Dentro de **PSK identity** Vamos a colocar el mismo valor que se coloco en el archivo de nuestro cliente en el apartado de **TLSPSKIdentity**
+  * Para **PSK** vamos a utilizar la llave que se genero utilizando **openssl**.
+  
+8.- Una vez terminando el proceso damos clic sobre el botón de add
+
+
