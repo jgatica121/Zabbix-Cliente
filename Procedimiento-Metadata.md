@@ -114,11 +114,15 @@ Los parametros que se deben agregar y cambiar para los clientes son los sigueint
 Mantener en todos los clientes:
 
 * Server=10.0.0.150 (IP servidor Zabbix)
+
 * ListenPort=10050 (Puerto de comunicación)
+
 * ServerActive=10.0.0.150 (IP servidor Zabbix)
 
 Cambiar en cada servidor:
+
 * Hostname=zabbix-04 (Hostname del cliente)
+
 * HostMetadata=grpB (Nombre para identificar a nuestro grupo de hosts, se tienen que declarar dentro de la consola web de zabbix)
 
 **Firewall** 
@@ -150,16 +154,23 @@ Agregamos el puerto y reiniciamos nuestro firewall, para permitir la conexión c
 6.- Vamos a llenar los datos que nos solicita:
 
   * Name (Nombre de la nueva action)
+  
   * Conditions (Vamos a agregar una nueva condicional
+  
   * Type (El tipo de nuestra condicional debe ser **Host Metadata**
+  
   * Operator (Vamos a definirlo en **contains**
+  
   * Value (Vamos a utilizar el definido en nuestro archivo de configuración del cliente **grpB**
 
 7.- En la pestaña de **Operations** de vamos a realizar las siguientes tareas:
 
   * Operations vamos a dar clic sobre el boton de **add**
+  
   * Agregar **Operation type** (el tipo a agregar es **add to host group** en este caso será **Linux servers**)
+  
   * Agregar **Operation type** (el tipo a agregar es **Link to templates** en este caso será **Template Module ICMP Ping Template OS Linux by Zabbix agent**)
+  
 
 8.- Una vez terminado el proceso damos clic sobre el botón de **add**
 
