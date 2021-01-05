@@ -136,7 +136,8 @@ Agregamos el puerto y reiniciamos nuestro firewall, para permitir la conexión c
 ### Configuración de acciones 
 
 1.- Para realizar la configuración de nuestro servidor y se auto registren nuestro clientes nos dirigimos a nuestra consola web.
-    http://zabbix-server.ansible-labs.com/zabbix
+    
+  * http://zabbix-server.ansible-labs.com/zabbix
 
 2.- Cuando nos encontremos dentro nos dirigimos a **Configuration** y sobre **Actions**
 
@@ -148,17 +149,17 @@ Agregamos el puerto y reiniciamos nuestro firewall, para permitir la conexión c
 
 6.- Vamos a llenar los datos que nos solicita:
 
-    * Name (Nombre de la nueva action)
-    * Conditions (Vamos a agregar una nueva condicional
-    * Type (El tipo de nuestra condicional debe ser **Host Metadata**
-    * Operator (Vamos a definirlo en **contains**
-    * Value (Vamos a utilizar el definido en nuestro archivo de configuración del cliente **grpB**
+  * Name (Nombre de la nueva action)
+  * Conditions (Vamos a agregar una nueva condicional
+  * Type (El tipo de nuestra condicional debe ser **Host Metadata**
+  * Operator (Vamos a definirlo en **contains**
+  * Value (Vamos a utilizar el definido en nuestro archivo de configuración del cliente **grpB**
 
 7.- En la pestaña de **Operations** de vamos a realizar las siguientes tareas:
 
-    * Operations vamos a dar clic sobre el boton de **add**
-    * Agregar **Operation type** (el tipo a agregar es **add to host group** en este caso será **Linux servers**)
-    * Agregar **Operation type** (el tipo a agregar es **Link to templates** en este caso será **Template Module ICMP Ping Template OS Linux by Zabbix agent**)
+  * Operations vamos a dar clic sobre el boton de **add**
+  * Agregar **Operation type** (el tipo a agregar es **add to host group** en este caso será **Linux servers**)
+  * Agregar **Operation type** (el tipo a agregar es **Link to templates** en este caso será **Template Module ICMP Ping Template OS Linux by Zabbix agent**)
 
 8.- Una vez terminado el proceso damos clic sobre el botón de **add**
 
@@ -166,7 +167,8 @@ Agregamos el puerto y reiniciamos nuestro firewall, para permitir la conexión c
 ### configuración de Discovery
 
 1.- Para realizar la configuración de nuestro servidor y se auto registren nuestro clientes nos dirigimos a nuestra consola web.
-    http://zabbix-server.ansible-labs.com/zabbix
+  
+  * http://zabbix-server.ansible-labs.com/zabbix
 
 2.- Cuando nos encontremos dentro nos dirigimos a **Configuration** y sobre **Discovery**.
 
