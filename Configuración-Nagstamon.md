@@ -2,7 +2,7 @@
 
 Para poder configurar Nagstamon debemos descargarlo desde la pagina el rpm o el ejecutable necesario dependiendo de nuestra distribución de S.O.
 
-**URL: ** https://nagstamon.ifw-dresden.de/
+**URL:** https://nagstamon.ifw-dresden.de/
 
 Para la prueba que vamos a realizar, vamos a descargar el sigueinte paquete.
 
@@ -78,3 +78,14 @@ el cual vamos a instalar en nuestro S.O.
 
           ¡Listo!
           [jgatica@localhost Descargas]$ 
+
+
+Esta herramienta es instalada en el equipo de nuestro cliente para poder monitorear lo que pueda estar sucediendo en nuetro S.O.
+
+
+Instalado vamos a proceder abrirla.
+
+Nos solicitara que configuremos un servidor nuevo.
+
+1.- El cual vamos a llenar con los datos de nuestra herramienta de monitoreo.
+
