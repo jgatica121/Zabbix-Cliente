@@ -10,7 +10,6 @@ Para la prueba que vamos a realizar, vamos a descargar el sigueinte paquete.
 
 el cual vamos a instalar en nuestro S.O.
 
-
           [jgatica@localhost Descargas]$ sudo yum localinstall nagstamon-3.4.1.fedora32-1.noarch.rpm
           [sudo] password for jgatica: 
           Updating Subscription Management repositories.
