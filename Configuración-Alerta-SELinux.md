@@ -12,8 +12,17 @@ Validamos el estado de SELinux.
 
     [root@zabbix-04 zabbix_agentd.d]# getenforce 
     Enforcing
+    
+Colocamos SELinux en modo permisivo y validamos.
+    
+    [root@zabbix-04 zabbix_agentd.d]# setenforce 0
+    [root@zabbix-04 zabbix_agentd.d]# getenforce 
+    Permissive
 
 Agregamos el siguiente booleano a nuestro servidor, para que la actualización se realice de manera correcta.
 
     [root@zabbix-04 zabbix_agentd.d]# semanage permissive zabbix_agent_t
+    
+    
+## Configuración consola web Zabbix para realizar el monitoreo.
     
